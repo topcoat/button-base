@@ -9,8 +9,16 @@ module.exports = function(grunt) {
         },
         stylus: {
             compile: {
+                options: {
+                    compress: false
+                },
                 files: {
-                    'button.css': 'style/button.styl'
+                    'button.css': ['style/copyright.styl','style/button.styl']
+                }
+            },
+            minify: {
+                files: {
+                    'button-min.css': ['style/copyright.styl','style/button.styl']
                 }
             }
         },
@@ -25,6 +33,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-stylus');
 
     // Default task.
-    grunt.registerTask('default', ['stylus']);
+    grunt.registerTask('default', ['stylus:compile', 'stylus:minify']);
 
 };
