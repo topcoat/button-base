@@ -8,6 +8,7 @@
   "development": {},
   "license": "Apache",
   "styles": [
-    "button.css"
+    "button.css",
+    "button-min.css"
   ]
 }
