@@ -7,6 +7,9 @@
   "dependencies": {},
   "development": {},
   "license": "Apache",
+  "files" : [
+      "style/button.styl"
+  ],
   "styles": [
     "button.css",
     "button-min.css"
