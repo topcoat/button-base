@@ -1,5 +1,5 @@
 {
-  "name": "topcoat/button",
+  "name": "button",
   "version": "0.0.0",
   "description": "TopCoat button base",
   "main": "button.css",
