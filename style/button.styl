@@ -19,9 +19,14 @@
   user-select none
 
 .button--quiet
+  // Instead of using extends see if this can be accomplished with button-base mixin
   @extends .button
   background-color transparent
   /* Border is added so button doesn't shift when clicked */
   border 1px solid transparent
   box-shadow none
+
+.button--large
+  // Instead of using extends see if this can be accomplished with button-base mixin
+  @extends .button
 

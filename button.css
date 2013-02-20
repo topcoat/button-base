@@ -14,7 +14,8 @@ limitations under the License.
 */
 
 .button,
-.button--quiet {
+.button--quiet,
+.button--large {
   position: relative;
   display: inline-block;
   padding: 0 0.75em;
