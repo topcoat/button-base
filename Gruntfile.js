@@ -13,12 +13,12 @@ module.exports = function(grunt) {
                     compress: false
                 },
                 files: {
-                    'button.css': ['style/copyright.styl','style/button.styl']
+                    'release/button.css': ['style/copyright.styl','style/button.styl']
                 }
             },
             minify: {
                 files: {
-                    'button-min.css': ['style/copyright.styl','style/button.styl']
+                    'release/button-min.css': ['style/copyright.styl','style/button.styl']
                 }
             }
         },

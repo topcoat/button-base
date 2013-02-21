@@ -11,7 +11,7 @@
       "style/button.styl"
   ],
   "styles": [
-    "button.css",
-    "button-min.css"
+    "release/button.css",
+    "release/button-min.css"
   ]
 }
