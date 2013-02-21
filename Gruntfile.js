@@ -13,14 +13,17 @@ module.exports = function(grunt) {
                     compress: false
                 },
                 files: {
-                    'release/button.css': ['style/copyright.styl','style/button.styl']
+                    'release/button.css': ['style/copyright.styl', 'style/button.styl']
                 }
             },
             minify: {
                 files: {
-                    'release/button-min.css': ['style/copyright.styl','style/button.styl']
+                    'release/button-min.css': ['style/copyright.styl', 'style/button.styl']
                 }
             }
+        },
+        nodeunit: {
+            tests: ['test/*_test.js']
         },
         watch: {
             files: 'style/*.styl',
@@ -31,8 +34,9 @@ module.exports = function(grunt) {
     // These plugins provide necessary tasks.
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-stylus');
+    grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
     // Default task.
-    grunt.registerTask('default', ['stylus:compile', 'stylus:minify']);
+    grunt.registerTask('default', ['stylus:compile', 'stylus:minify', 'nodeunit']);
 
 };
