@@ -10,15 +10,20 @@ module.exports = function(grunt) {
         stylus: {
             compile: {
                 options: {
+                    import: ['src/button-mixins'],
                     compress: false
                 },
                 files: {
-                    'release/button.css': ['style/copyright.styl', 'style/button.styl']
+                    'release/button.css': ['src/copyright.styl', 'src/button.styl']
                 }
             },
             minify: {
+                options: {
+                    import: ['src/button-mixins'],
+                    compress: true
+                },
                 files: {
-                    'release/button-min.css': ['style/copyright.styl', 'style/button.styl']
+                    'release/button-min.css': ['src/copyright.styl', 'src/button.styl']
                 }
             }
         },
@@ -26,7 +31,7 @@ module.exports = function(grunt) {
             tests: ['test/*_test.js']
         },
         watch: {
-            files: 'style/*.styl',
+            files: 'src/*.styl',
             tasks: ['default']
         }
     });
