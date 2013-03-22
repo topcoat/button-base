@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         stylus: {
             compile: {
                 options: {
-                    import: ['src/button-mixins'],
+                    paths: ['src/mixins'],
                     compress: false
                 },
                 files: {
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
             },
             minify: {
                 options: {
-                    import: ['src/button-mixins'],
+                    paths: ['src/mixins'],
                     compress: true
                 },
                 files: {
