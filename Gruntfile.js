@@ -3,36 +3,71 @@ module.exports = function(grunt) {
 
     // Project configuration.
     grunt.initConfig({
-        // Task configuration.
+        pkg: grunt.file.readJSON('package.json'),
         gruntfile: {
             src: 'Gruntfile.js'
         },
-        stylus: {
-            compile: {
+
+        topcoat: {
+            download: {
                 options: {
-                    paths: ['src/mixins'],
-                    compress: false
-                },
-                files: {
-                    'release/button.css': ['src/copyright.styl', 'src/button.styl']
-                }
-            },
-            minify: {
-                options: {
-                    paths: ['src/mixins'],
-                    compress: true
-                },
-                files: {
-                    'release/button-min.css': ['src/copyright.styl', 'src/button.styl']
+                    srcPath: 'tmp/src/',
+                    repos: '<%= pkg.topcoat %>'
                 }
             }
         },
-        nodeunit: {
-            tests: ['test/*_test.js']
+
+        unzip: {
+            utils: {
+                src: 'tmp/src/utils/*.zip',
+                dest: 'tmp/src/utils'
+            }
         },
+
+        clean: {
+            tmp: ['tmp'],
+            zip: ['tmp/src/*.zip', 'tmp/src/utils/*.zip']
+        },
+
+        compile: {
+            stylus: {
+                options: {
+                    import: ['button-mixin', 'utils'],
+                    compress: false
+                },
+                files: {
+                    'release/css/button.css': ['src/copyright.styl', 'src/button.styl']
+                }
+            }
+        },
+
+        cssmin: {
+            minify: {
+                expand: true,
+                cwd: 'release/css/',
+                src: ['*.css', '!*.min.css'],
+                dest: 'release/css/',
+                ext: '.min.css'
+            }
+        },
+
+        jade: {
+            compile: {
+                expand: true,
+                cwd: 'test/perf',
+                src: ['*.jade'],
+                dest: 'test/perf/',
+                ext: '.test.html'
+            }
+        },
+
+        nodeunit: {
+            tests: ['test/*.test.js']
+        },
+
         watch: {
             files: 'src/*.styl',
-            tasks: ['default']
+            tasks: ['build']
         }
     });
 
@@ -40,8 +75,15 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-stylus');
     grunt.loadNpmTasks('grunt-contrib-nodeunit');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-jade');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-topcoat');
+    grunt.loadNpmTasks('grunt-zip');
 
-    // Default task.
-    grunt.registerTask('default', ['stylus:compile', 'stylus:minify', 'nodeunit']);
+    grunt.loadTasks('tasks');
+
+    grunt.registerTask('default', ['clean', 'topcoat', 'build']);
+    grunt.registerTask('build', ['compile', 'cssmin', 'jade', 'nodeunit']);
 
 };

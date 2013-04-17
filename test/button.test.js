@@ -30,7 +30,7 @@ exports.styleguide = {
   stylus: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('release/button.css');
+    var actual = grunt.file.read('release/css/button.css');
     var expected = grunt.file.read('test/expected/button.css');
     test.equal(actual, expected, 'should generate correct css');
 
