@@ -1,6 +1,6 @@
 {
   "name": "button",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "description": "TopCoat button base",
   "main": "button.css",
   "directories": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/topcoat/button.git"
+    "url": "git://github.com/topcoat/button-base.git"
   },
   "topcoat": {
     "utils": {
