@@ -8,30 +8,14 @@ module.exports = function(grunt) {
             src: 'Gruntfile.js'
         },
 
-        topcoat: {
-            download: {
-                options: {
-                    srcPath: 'tmp/src/',
-                    repos: '<%= pkg.topcoat %>'
-                }
-            }
-        },
-
-        unzip: {
-            utils: {
-                src: 'tmp/src/utils/*.zip',
-                dest: 'tmp/src/utils'
-            }
-        },
-
         clean: {
-            tmp: ['tmp'],
-            zip: ['tmp/src/*.zip', 'tmp/src/utils/*.zip']
+            release: ['release']
         },
 
-        compile: {
-            stylus: {
+        stylus: {
+            compile: {
                 options: {
+                    paths: ['src', 'src/mixins', 'node_modules/topcoat-utils/src/mixins'],
                     import: ['button-mixin', 'utils'],
                     compress: false
                 },
@@ -66,7 +50,7 @@ module.exports = function(grunt) {
         },
 
         watch: {
-            files: 'src/*.styl',
+            files: 'src/**/*.styl',
             tasks: ['build']
         }
     });
@@ -78,12 +62,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-topcoat');
-    grunt.loadNpmTasks('grunt-zip');
 
-    grunt.loadTasks('tasks');
-
-    grunt.registerTask('default', ['clean', 'topcoat', 'build']);
-    grunt.registerTask('build', ['compile', 'cssmin', 'jade', 'nodeunit']);
+    grunt.registerTask('default', ['clean', 'build']);
+    grunt.registerTask('build', ['stylus', 'cssmin', 'jade', 'nodeunit']);
 
 };
