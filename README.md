@@ -1,8 +1,7 @@
-button
-======
+Button Base
+===========
 
-### TopCoat button base
+### Topcoat button base
 
-This is the base for all TopCoat buttons.
-Extend this button in your theme to add styling and behaviors.
-All platform specific prefixes should be added by the theme as well.
+This is the base for all Topcoat buttons.
+Look at the button file in src to see an example usage of the mixins.

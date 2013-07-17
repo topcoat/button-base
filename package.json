@@ -1,13 +1,16 @@
 {
   "name": "topcoat-button-base",
   "version": "0.3.0",
-  "description": "Topcoat button base",
-  "main": "button.css",
+  "description": "Topcoat button base. Reset styles for buttons.",
+  "main": "index.html",
   "directories": {
-    "test": "test"
+    "test": "test",
+    "lib": "src",
+    "bin": "css"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "prepublish": "grunt"
   },
   "repository": {
     "type": "git",
@@ -18,19 +21,21 @@
     "css",
     "topcoat",
     "base",
+    "reset",
     "adobe"
   ],
   "author": "@dam Kristofer Joseph",
   "license": "Apache",
   "devDependencies": {
-    "grunt-zip": "~0.9.0",
-    "topcoat-utils": "~0.1.0",
     "grunt-contrib-stylus": "~0.6.0",
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.4.4",
-    "grunt-contrib-nodeunit": "~0.2.0",
     "grunt-contrib-cssmin": "~0.6.1",
     "grunt-contrib-jade": "~0.7.0",
-    "grunt-contrib-clean": "~0.5.0"
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-simple-mocha": "~0.4.0"
+  },
+  "dependencies": {
+    "topcoat-utils": "~0.1.0"
   }
 }

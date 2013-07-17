@@ -16,19 +16,4 @@
 *
 */
 
-/*global require, describe, it*/
-
-'use strict';
-
-var grunt = require('grunt'),
-    assert = require('assert');
-
-describe('button-base', function() {
-
-    it('should create expected css file', function() {
-        var actual = grunt.file.read('css/button.css');
-        var expected = grunt.file.read('test/expected/button.css');
-        assert.equal(actual, expected, 'should generate correct css');
-    });
-
-});
+.button,.button--quiet{position:relative;display:inline-block;vertical-align:top;box-sizing:border-box;background-clip:padding-box;padding:0;margin:0;font:inherit;color:inherit;background:transparent;border:0;cursor:default;user-select:none;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.button--quiet{background:transparent;border:1px solid transparent;box-shadow:none}
