@@ -40,3 +40,8 @@
   border: 1px solid transparent;
   box-shadow: none;
 }
+.button--disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}

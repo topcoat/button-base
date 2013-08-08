@@ -30,8 +30,8 @@ module.exports = function(grunt) {
         stylus: {
             compile: {
                 options: {
-                    paths: ['src', 'src/mixins', 'node_modules/topcoat-utils/src/mixins'],
-                    import: ['button-mixin', 'utils'],
+                    paths: ['node_modules/topcoat-utils/src/mixins'],
+                    import: ['utils'],
                     compress: false,
                 },
                 files: [{
@@ -47,10 +47,7 @@ module.exports = function(grunt) {
                 cwd: 'css/',
                 src: ['*.css', '!*.min.css'],
                 dest: 'css/',
-                ext: '.min.css',
-                options: {
-                    banner: grunt.file.read('src/copyright.styl').toString()
-                }
+                ext: '.min.css'
             },
         },
 
@@ -65,10 +62,6 @@ module.exports = function(grunt) {
         },
 
         simplemocha: {
-            options: {
-                ui: 'bdd',
-                reporter: 'Nyan'
-            },
             all: {
                 src: ['test/*.test.js']
             }
