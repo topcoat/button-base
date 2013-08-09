@@ -15,8 +15,7 @@
 * limitations under the License.
 *
 */
-.button,
-.button--quiet {
+.button {
   position: relative;
   display: inline-block;
   vertical-align: top;
