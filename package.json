@@ -36,6 +36,6 @@
     "grunt-simple-mocha": "~0.4.0"
   },
   "dependencies": {
-    "topcoat-utils": "~0.1.0"
+    "topcoat-utils": "~0.1.3"
   }
 }
