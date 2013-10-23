@@ -17,22 +17,19 @@
 */
 @import utils
 
-.button {
-  inline-block()
-  reset-box-model()
-  reset-base()
-  reset-cursor()
-  ellipsis()
+%button {
+  @extend %inline-block
+  @extend %reset-box-model
+  @extend %reset-base
+  @extend %reset-cursor
+  @extend %ellipsis
   text-decoration: none;
 }
 
-.button--quiet {
-  reset-quiet()
+%button--quiet {
+  @extend %reset-quiet
 }
 
-button--quiet()
-  reset-quiet()
-
-.button--disabled {
-  disabled()
+%button--disabled {
+  @extend %disabled
 }
