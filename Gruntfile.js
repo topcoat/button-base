@@ -30,12 +30,12 @@ module.exports = function(grunt) {
         stylus: {
             compile: {
                 options: {
-                    paths: ['node_modules/topcoat-utils/src/mixins'],
+                    paths: ['node_modules/topcoat-utils/src/'],
                     import: ['utils'],
                     compress: false,
                 },
                 files: [{
-                    src: 'src/button.styl',
+                    src: 'test/fixtures/button.styl',
                     dest: 'css/button.css'
                 }]
             }
