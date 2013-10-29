@@ -15,13 +15,22 @@
 * limitations under the License.
 *
 */
-@import button
+@import utils
 
-.button
-  @extend %button
+%button {
+  extend: %inline-block;
+  extend: %reset-box-model;
+  extend: %reset-base;
+  extend: %reset-cursor;
+  extend: %ellipsis;
+  text-decoration: none;
+}
 
-.button--quiet
-  @extend %button--quiet
+%button--quiet {
+  extend: %reset-quiet;
+}
 
-.button--disabled
-  @extend %button--disabled
+%button--disabled {
+  extend: %disabled;
+}
+
