@@ -37,6 +37,6 @@
     "grunt-rework": "0.0.5"
   },
   "dependencies": {
-    "topcoat-utils": "~0.1.3"
+    "topcoat-utils": "git://github.com/topcoat/utils.git#rework"
   }
 }
