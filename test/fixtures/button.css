@@ -15,32 +15,16 @@
 * limitations under the License.
 *
 */
+@import button
+
 .button {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  box-sizing: border-box;
-  background-clip: padding-box;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  color: inherit;
-  background: transparent;
-  border: none;
-  cursor: default;
-  user-select: none;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  text-decoration: none;
+  @extend %button
 }
+
 .button--quiet {
-  background: transparent;
-  border: 1px solid transparent;
-  box-shadow: none;
+  @extend %button--quiet
 }
+
 .button--disabled {
-  opacity: 0.3;
-  cursor: default;
-  pointer-events: none;
+  @extend %button--disabled
 }

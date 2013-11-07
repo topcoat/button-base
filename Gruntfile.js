@@ -27,38 +27,32 @@ module.exports = function(grunt) {
             release: ['css']
         },
 
-        stylus: {
-            compile: {
-                options: {
-                    paths: ['node_modules/topcoat-utils/src/mixins'],
-                    import: ['utils'],
-                    compress: false,
+        rework: {
+            files: {
+                dest: 'css/button.css',
+                src: ['src/button.css', __dirname + 'node_modules/topcoat/utils/src/utils.css']
+            },
+            options: {
+                toString: {
+                    compress: false
                 },
-                files: [{
-                    src: 'src/button.styl',
-                    dest: 'css/button.css'
-                }]
+                use: [
+                    ['rework.extend'],
+                    ['rework.prefix', 'border-radius'],
+                    ['rework.prefix', 'box-shadow']
+                ],
+                vendors: ['-moz-', '-webkit-']
             }
         },
 
         cssmin: {
             minify: {
                 expand: true,
-                cwd: 'css/',
+                cwd: 'css',
                 src: ['*.css', '!*.min.css'],
-                dest: 'css/',
+                dest: 'css',
                 ext: '.min.css'
             },
-        },
-
-        jade: {
-            compile: {
-                expand: true,
-                cwd: 'test/perf',
-                src: ['*.jade'],
-                dest: 'test/perf/',
-                ext: '.test.html'
-            }
         },
 
         simplemocha: {
@@ -68,21 +62,20 @@ module.exports = function(grunt) {
         },
 
         watch: {
-            files: 'src/**/*.styl',
+            files: 'src/**/*.css',
             tasks: ['build', 'test']
         }
     });
 
     // These plugins provide necessary tasks.
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-stylus');
+    grunt.loadNpmTasks('grunt-rework');
     grunt.loadNpmTasks('grunt-simple-mocha');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.registerTask('default', ['clean', 'build', 'test', 'release']);
-    grunt.registerTask('build', ['stylus', 'jade']);
+    grunt.registerTask('build', ['rework']);
     grunt.registerTask('test', ['simplemocha']);
     grunt.registerTask('release', ['cssmin']);
 
