@@ -15,16 +15,16 @@
 * limitations under the License.
 *
 */
-@import button
+@import "./src/button.css";
 
 .button {
-  @extend %button
+  extend: %button;
 }
 
 .button--quiet {
-  @extend %button--quiet
+  extend: %button--quiet;
 }
 
 .button--disabled {
-  @extend %button--disabled
+  extend: %button--disabled;
 }

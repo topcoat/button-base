@@ -27,21 +27,16 @@ module.exports = function(grunt) {
             release: ['css']
         },
 
-        rework: {
-            files: {
-                dest: 'css/button.css',
-                src: ['src/button.css', __dirname + 'node_modules/topcoat/utils/src/utils.css']
-            },
+        topcoat: {
             options: {
-                toString: {
-                    compress: false
-                },
-                use: [
-                    ['rework.extend'],
-                    ['rework.prefix', 'border-radius'],
-                    ['rework.prefix', 'box-shadow']
-                ],
-                vendors: ['-moz-', '-webkit-']
+                browsers: ['last 2 versions']
+            },
+            compile: {
+                files: [{
+                        src: 'test/fixtures/button.css',
+                        dest: 'css/button.css'
+                    }
+                ]
             }
         },
 
@@ -59,23 +54,17 @@ module.exports = function(grunt) {
             all: {
                 src: ['test/*.test.js']
             }
-        },
-
-        watch: {
-            files: 'src/**/*.css',
-            tasks: ['build', 'test']
         }
     });
 
     // These plugins provide necessary tasks.
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-rework');
+    grunt.loadNpmTasks('grunt-topcoat');
     grunt.loadNpmTasks('grunt-simple-mocha');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.registerTask('default', ['clean', 'build', 'test', 'release']);
-    grunt.registerTask('build', ['rework']);
+    grunt.registerTask('build', ['topcoat']);
     grunt.registerTask('test', ['simplemocha']);
     grunt.registerTask('release', ['cssmin']);
 
