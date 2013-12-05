@@ -3,6 +3,7 @@
   "version": "0.7.0",
   "description": "Topcoat button base. Reset styles for buttons.",
   "main": "index.html",
+  "style": "src/button.css",
   "directories": {
     "test": "test",
     "lib": "src",
@@ -27,15 +28,16 @@
   "author": "@dam Kristofer Joseph",
   "license": "Apache",
   "devDependencies": {
-    "grunt-contrib-stylus": "~0.6.0",
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.4.4",
     "grunt-contrib-cssmin": "~0.6.1",
     "grunt-contrib-jade": "~0.7.0",
     "grunt-contrib-clean": "~0.5.0",
-    "grunt-simple-mocha": "~0.4.0"
+    "grunt-simple-mocha": "~0.4.0",
+    "grunt-rework": "0.0.5",
+    "grunt-topcoat": "~0.1.0"
   },
   "dependencies": {
-    "topcoat-utils": "~0.1.3"
+    "topcoat-utils": "~0.3.0"
   }
 }
