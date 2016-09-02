@@ -1,19 +1,18 @@
 {
   "name": "topcoat-button-base",
-  "version": "0.10.2",
   "description": "Topcoat button base. Reset styles for buttons.",
   "style": "src/",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test/",
-    "build": "postcss --use postcss-import --use postcss-inherit ./test/fixtures/index.css -o ./css/index.css",
-    "pretest": "npm run build"
+    "test": "ava test",
+    "prepublish": "rsn -p './src/button-base.css' -o ./css/button-base.css ./test/button-base.fixture.css",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/topcoat/topcoat.git"
+    "url": "https://github.com/topcoat/button-base.git"
   },
   "keywords": [
     "button",
@@ -33,15 +32,23 @@
   },
   "homepage": "http://topcoat.io",
   "dependencies": {
-    "topcoat-utils": "^0.4.1"
+    "topcoat-utils": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
+    "ava": "^0.16.0",
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-register": "^6.14.0",
+    "cz-customizable": "^4.0.0",
     "mocha": "^3.0.2",
-    "postcss": "^5.1.2",
-    "postcss-cli": "^2.5.2",
-    "postcss-css-variables": "^0.5.1",
-    "postcss-import": "^8.1.2",
-    "postcss-inherit": "^2.0.2"
+    "resin": "^1.1.0",
+    "semantic-release": "^4.3.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
   }
 }
