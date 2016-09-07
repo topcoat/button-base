@@ -1,13 +1,13 @@
 {
   "name": "topcoat-button-base",
   "description": "Topcoat button base. Reset styles for buttons.",
-  "style": "src/",
+  "style": "src/button-base",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "ava test",
-    "prepublish": "rsn -p './src/button-base.css' -o ./css/button-base.css ./test/button-base.fixture.css",
+    "prepublish": "rsn -p './' -o ./css/button-base.css ./test/button-base.fixture.css",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -43,7 +43,7 @@
     "babel-register": "^6.14.0",
     "cz-customizable": "^4.0.0",
     "mocha": "^3.0.2",
-    "resin": "^1.1.0",
+    "resin": "^1.2.0",
     "semantic-release": "^4.3.5"
   },
   "config": {
